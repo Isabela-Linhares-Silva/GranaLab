@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GranaLab - Cadastro</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../resources/css/style.css">
+</head>
+<body>
+
+    <div class="container">
+
+        <div class="logo">
+            <img src="../resources/img/LogoGranaLab.png" alt="Logo GranaLab" class="logo-imagem">
+            <h2>Seu futuro começa<br>com boas escolhas.</h2>
+            <p>Aprenda a cuidar do seu dinheiro com conteúdos e atividades de educação financeira.</p>
+        </div>
+
+        <div class="login">
+            
+            <form class="caixa-login">
+                <h2>Crie sua conta</h2>
+                <p class="subtitulo">Comece sua jornada no GranaLab!</p>
+
+                <div class="campo">
+                    <label>Tipo de perfil</label>
+                    <div style="display: flex; gap: 20px; margin-bottom: 12px; font-size: 20px; color: #060608;">
+                        <label><input type="radio" name="perfil" value="mentor"> Mentor</label>
+                        <label><input type="radio" name="perfil" value="aluno" checked> Aluno</label>
+                    </div>
+                </div>
+
+                <div class="campo">
+                    <label for="nome">Nome</label>
+                    <input type="text" id="nome" placeholder="Digite seu nome">
+                </div>
+
+                <div class="campo">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" placeholder="Digite seu e-mail">
+                </div>
+
+                <div class="campo">
+                    <label for="senha">Senha</label>
+                    <input type="password" id="senha" placeholder="Crie uma senha">
+                </div>
+
+                <div class="campo">
+                    <label for="confirma-senha">Confirmação de senha</label>
+                    <input type="password" id="confirma-senha" placeholder="Repita sua senha">
+                </div>
+
+                <button type="submit" class="btn-entrar">Criar conta</button>
+
+                <a href="../index.html" class="btn-criar-conta">Já tenho conta</a>
+            </form>
+
+        </div>
+
+    </div>
+
+</body>
+</html>
