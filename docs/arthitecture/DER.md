@@ -53,14 +53,14 @@ Centraliza o nome, o e-mail, os dados de acesso, o avatar e o tipo de perfil de 
 
 ### `aluno`
 
-Complementa a conta do aluno com nível de perfil, idade e gênero.
+Complementa a conta do aluno com nível de perfil, data de nascimento e gênero.
 
 | Atributo       | Tipo SQL              | Chave ou referência        | Aceita NULL |
 | -------------- | --------------------- | -------------------------- | ----------- |
 | `id_aluno`     | `INT`                 | PK, FK → `usuario.id_user` | Não         |
 | `nivel_perfil` | `VARCHAR(100)`        | —                          | Não         |
-| `idade`        | `INT`                 | —                          | Não         |
-| `genero`       | `ENUM('M', 'F', 'O')` | —                          | Sim         |
+| `data_nascimento`        | `DATE`                 | —                          | Não         |
+| `genero`       | `ENUM('M', 'F', 'O')` | —                          | Não         |
 
 ### `mentor`
 
@@ -69,7 +69,7 @@ Complementa a conta do mentor com a escola em que atua.
 | Atributo      | Tipo SQL       | Chave ou referência        | Aceita NULL |
 | ------------- | -------------- | -------------------------- | ----------- |
 | `id_mentor`   | `INT`          | PK, FK → `usuario.id_user` | Não         |
-| `escola_atua` | `VARCHAR(100)` | —                          | Não         |
+| `escola_atua` | `VARCHAR(100)` | —                          | Sim         |
 
 ### `turma`
 
@@ -201,4 +201,4 @@ Armazena o texto de uma opção de resposta e a indicação de que ela é corret
 - **Chaves estrangeiras.** As 14 FKs estão identificadas na seção 3. Quando uma FK recebe um valor, o registro referenciado deve existir. Em `aluno` e `mentor`, o mesmo campo exerce as funções de PK e FK.
 - **Unicidade.** Além das PKs, o banco exige e-mail único em `usuario`, par único `(id_aluno, id_atv)` em `aluno_atividade` e par único `(id_turma, id_atv)` em `turma_atividade`. A definição atual permite repetir o código de turma e o par aluno–turma em matrículas.
 - **Obrigatoriedade.** As colunas marcadas com “Não” em **Aceita NULL** são obrigatórias. Por exemplo, toda turma exige código, título e mentor. Em `atividade`, o título é obrigatório e as referências ao criador e à categoria são opcionais.
-- **Valores de domínio.** `usuario.tipo_perfil` admite `Mentor` e `Aluno`. O domínio de `aluno.genero` contém `M`, `F` e `O`, e o campo também aceita `NULL`. Os campos de percentual são inteiros sem restrição `CHECK` de intervalo no script.
+- **Valores de domínio.** `usuario.tipo_perfil` admite `Mentor` e `Aluno`. O domínio de `aluno.genero` contém `M`, `F` e `O`. Os campos de percentual são inteiros sem restrição `CHECK` de intervalo no script.
