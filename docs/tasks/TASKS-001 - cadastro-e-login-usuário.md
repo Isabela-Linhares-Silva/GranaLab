@@ -9,7 +9,7 @@ Responsabilidade do arquivo: representa as tarefas derivadas da SPEC-001 e acomp
 Estrutura e persistência
 ### T001 - Criar entidade Usuario
 - Camada: back-end
-- Status: A fazer
+- Status: Concluído
 - Dependências: Nenhuma.
 - Critérios de conclusão:
   - Criar a entidade Usuario conforme o modelo de dados definido.
@@ -19,7 +19,7 @@ Estrutura e persistência
 
 ### T002 - Criar entidade Aluno
 - Camada: back-end
-- Status: A fazer
+- Status: Em andamento
 - Dependências: T001.
 - Critérios de conclusão:
   - Criar a entidade Aluno.
@@ -28,7 +28,7 @@ Estrutura e persistência
 
 ### T003 - Criar entidade Mentor
   - Camada: back-end
-  - Status: A fazer
+  - Status: Em andamento
   - Dependências: T001.
   - Critérios de conclusão:
     - Criar a entidade Mentor.
@@ -37,7 +37,7 @@ Estrutura e persistência
 
 ### T004 - Criar repositórios para persistência dos usuários
 - Camada: back-end
-- Status: A fazer
+- Status: Em andamento
 - Dependências: T001, T002 e T003.
 - Critérios de conclusão:
   - Criar os repositórios necessários (UsuarioRepository, AlunoRepository, MentorRepository).
@@ -233,7 +233,7 @@ Tratamento de erros
 Cadastro
 ### T022 - Criar tela de seleção do tipo de perfil
 - Camada: front-end
-- Status: A fazer
+- Status: Em andamento
 - Dependências: Nenhuma.
 - Critérios de conclusão:
   - Apresentar as opções de cadastro como Aluno e Mentor.
@@ -242,7 +242,7 @@ Cadastro
 
 ### T023 - Criar formulário de cadastro de Aluno
 - Camada: front-end
-- Status: A fazer
+- Status: Em andamento
 - Dependências: T022.
 - Critérios de conclusão:
   - Disponibilizar campo Nome (máximo 100 caracteres).
@@ -256,7 +256,7 @@ Cadastro
 
 ### T024 - Criar formulário de cadastro de Mentor
 - Camada: front-end
-- Status: A fazer
+- Status: Em andamento
 - Dependências: T022.
 - Critérios de conclusão:
   - Disponibilizar campo Nome (máximo 100 caracteres).
@@ -269,7 +269,7 @@ Cadastro
 
 ### T025 - Implementar validações e mensagens nos formulários de cadastro
 - Camada: front-end
-- Status: A fazer
+- Status: Em andamento
 - Dependências: T023 e T024.
 - Critérios de conclusão:
   - Sinalizar campos obrigatórios não preenchidos.
@@ -291,7 +291,7 @@ Cadastro
 Login
 ### T027 - Criar tela de login
 - Camada: front-end
-- Status: A fazer
+- Status: Em andamento
 - Dependências: Nenhuma.
 - Critérios de conclusão:
   - Disponibilizar campo de e-mail.
