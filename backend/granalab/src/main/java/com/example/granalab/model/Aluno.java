@@ -24,11 +24,12 @@ public class Aluno {
     private String nivelPerfil;
 
     @NotNull
-    @Column(name = "idade", nullable = false)
-    private Integer idade;
+    @Column(name = "data_nascimento", nullable = false)
+    private LocalDate dataNascimento;
 
+    @NotNull
     @Enumerated(EnumType.STRING)
-    @Column(name = "genero")
+    @Column(name = "genero", nullable = false)
     private Genero genero;
 
     public Aluno() {
@@ -58,12 +59,12 @@ public class Aluno {
         this.nivelPerfil = nivelPerfil;
     }
 
-    public Integer getIdade() {
-        return idade;
+    public LocalDate getDataNascimento() {
+        return dataNascimento;
     }
 
-    public void setIdade(Integer idade) {
-        this.idade = idade;
+    public void setDataNascimento(LocalDate dataNascimento) {
+        this.dataNascimento = dataNascimento;
     }
 
     public Genero getGenero() {

@@ -18,9 +18,8 @@ public class Mentor {
     @JoinColumn(name = "id_mentor")
     private Usuario usuario;
 
-    @NotBlank
     @Size(max = 100)
-    @Column(name = "escola_atua", nullable = false, length = 100)
+    @Column(name = "escola_atua", nullable = true, length = 100)
     private String escolaAtua;
 
     public Mentor() {
