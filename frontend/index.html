@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#ffffff">
     <title>GranaLab - Login</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -10,37 +11,42 @@
     <link rel="stylesheet" href="resources/css/style.css">
 </head>
 <body>
-    <div class="container">
-        <div class="logo">
-            <img src="resources/img/LogoGranaLab.png" alt="Logo GranaLab" class="logo-imagem">
-            <h2>Seu futuro começa<br>com boas escolhas.</h2>
-            <p>Aprenda a cuidar do seu dinheiro com conteúdos e atividades de educação financeira.</p>
-        </div>
-        <div class="login">
-            <form class="caixa-login" id="form-login">
+    <main class="auth-layout">
+        <section class="brand-panel" aria-label="Sobre o GranaLab">
+            <a class="brand" href="index.html" aria-label="GranaLab - início">
+                <span class="brand-mark" aria-hidden="true">✦</span>
+                <span class="brand-grana">Grana</span><span class="brand-lab">Lab</span>
+            </a>
+            <div class="brand-copy">
+                <h1>Seu futuro começa<br>com boas escolhas.</h1>
+                <p>Aprenda a cuidar do seu dinheiro com conteúdos e atividades de educação financeira.</p>
+            </div>
+            <span class="decor decor-top" aria-hidden="true"></span>
+            <span class="decor decor-bottom" aria-hidden="true"></span>
+        </section>
+
+        <section class="form-panel">
+            <form class="auth-card" id="form-login" novalidate>
                 <h2>Boas-vindas de volta!</h2>
-                <p class="subtitulo">Entre na sua conta para continuar.</p>
-                <div class="campo">
+                <p class="subtitle">Entre na sua conta para continuar.</p>
+                <div class="field">
                     <label for="email">E-mail</label>
-                    <input type="email" id="email" placeholder="Digite seu e-mail" required>
+                    <input type="email" id="email" name="email" placeholder="Digite seu e-mail" maxlength="100" autocomplete="email" required>
                 </div>
-                <div class="campo">
+                <div class="field">
                     <label for="senha">Senha</label>
-                    <input type="password" id="senha" placeholder="••••••••" required>
+                    <input type="password" id="senha" name="senha" placeholder="Digite sua senha" maxlength="255" autocomplete="current-password" required>
                 </div>
-                <div id="mensagem-erro-login" style="color: #d32f2f; font-size: 13px; margin-bottom: 12px; display: none;"></div>
-                <div class="opcoes">
-                    <label>
-                        <input type="checkbox"> Lembrar de mim
-                    </label>
-                    <a href="#">Esqueceu a senha?</a>
+                <div id="mensagem-erro-login" class="form-message" role="alert" aria-live="polite" hidden></div>
+                <div class="form-links form-links-end">
+                    <a href="pages/recuperar-senha.html">Esqueceu a senha?</a>
                 </div>
-                <button type="submit" class="btn-entrar" id="btn-login">Entrar</button>
-                <p class="texto-cadastro">Ainda não tem uma conta?</p>
-                <a href="pages/cadastro.html" class="btn-criar-conta">Criar conta</a>
+                <button type="submit" class="button button-primary" id="btn-login">Entrar</button>
+                <p class="form-footnote">Ainda não tem uma conta?</p>
+                <a href="pages/cadastro.html" class="button button-outline">Criar conta</a>
             </form>
-        </div>
-    </div>
+        </section>
+    </main>
     <script src="resources/app.js"></script>
 </body>
 </html>

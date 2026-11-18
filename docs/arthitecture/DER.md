@@ -2,7 +2,7 @@
 
 ## 1. Objetivo
 
-Documentar as 12 tabelas do banco `granalabteste`, seus atributos, relacionamentos e restrições conforme o script `scriptSQLgranalabteste.sql`. Atualizar este documento quando mudar uma tabela, coluna, chave, cardinalidade ou restrição.
+Documentar as 12 tabelas do banco `granalabteste`, seus atributos, relacionamentos e restrições. O script `scriptSQLgranalabteste.sql` representa a estrutura física atual; as restrições requeridas pela SPEC-002 e ainda ausentes no script são identificadas na seção 5.
 
 ## 2. Diagrama
 
@@ -36,20 +36,20 @@ erDiagram
 
 ## 3. Entidades
 
-Cada tabela abaixo reproduz os nomes e tipos do SQL. A coluna **Aceita NULL** indica se o banco permite omitir o valor. PK identifica a chave primária e FK identifica uma chave estrangeira.
+Cada tabela abaixo reproduz os nomes e tipos do SQL. Restrições marcadas como requeridas pela SPEC-002 representam o modelo alvo, ainda que o script SQL atual não as implemente. A coluna **Aceita NULL** indica se o valor pode ser omitido no modelo alvo. PK identifica a chave primária e FK identifica uma chave estrangeira.
 
 ### `usuario`
 
 Centraliza o nome, o e-mail, os dados de acesso, o avatar e o tipo de perfil de cada conta.
 
-| Atributo      | Tipo SQL                  | Chave ou referência | Aceita NULL |
-| ------------- | ------------------------- | ------------------- | ----------- |
-| `id_user`     | `INT`                     | PK                  | Não         |
-| `nome`        | `VARCHAR(100)`            | —                   | Não         |
-| `email`       | `VARCHAR(100)`            | UNIQUE              | Não         |
-| `senha_hash`  | `VARCHAR(255)`            | —                   | Sim         |
-| `url_avatar`  | `VARCHAR(200)`            | —                   | Sim         |
-| `tipo_perfil` | `ENUM('Mentor', 'Aluno')` | —                   | Não         |
+| Atributo      | Tipo SQL                  | Chave ou referência              | Aceita NULL |
+| ------------- | ------------------------- | -------------------------------- | ----------- |
+| `id_user`     | `INT`                     | PK                               | Não         |
+| `nome`        | `VARCHAR(100)`            | UNIQUE; comprimento de 5 a 100   | Não         |
+| `email`       | `VARCHAR(100)`            | UNIQUE                           | Não         |
+| `senha_hash`  | `VARCHAR(255)`            | —                                | Sim         |
+| `url_avatar`  | `VARCHAR(200)`            | caminho de avatar do catálogo    | Não         |
+| `tipo_perfil` | `ENUM('Mentor', 'Aluno')` | —                                | Não         |
 
 ### `aluno`
 
@@ -199,6 +199,10 @@ Armazena o texto de uma opção de resposta e a indicação de que ela é corret
 
 - **Chaves primárias.** Cada tabela possui uma PK inteira de uma coluna. O script exige identificadores únicos e preenchidos. A geração com `AUTO_INCREMENT` não está declarada.
 - **Chaves estrangeiras.** As 14 FKs estão identificadas na seção 3. Quando uma FK recebe um valor, o registro referenciado deve existir. Em `aluno` e `mentor`, o mesmo campo exerce as funções de PK e FK.
-- **Unicidade.** Além das PKs, o banco exige e-mail único em `usuario`, par único `(id_aluno, id_atv)` em `aluno_atividade` e par único `(id_turma, id_atv)` em `turma_atividade`. A definição atual permite repetir o código de turma e o par aluno–turma em matrículas.
-- **Obrigatoriedade.** As colunas marcadas com “Não” em **Aceita NULL** são obrigatórias. Por exemplo, toda turma exige código, título e mentor. Em `atividade`, o título é obrigatório e as referências ao criador e à categoria são opcionais.
+- **Unicidade.** Além das PKs, o modelo exige e-mail e nome/nickname únicos em `usuario`, par único `(id_aluno, id_atv)` em `aluno_atividade` e par único `(id_turma, id_atv)` em `turma_atividade`. A definição atual do SQL permite repetir o nome, o código de turma e o par aluno–turma em matrículas.
+- **Nome/nickname.** Conforme a SPEC-002, `usuario.nome` deve ter entre 5 e 100 caracteres e ser único. O máximo é coberto por `VARCHAR(100)`; o mínimo requer uma restrição de comprimento além de `NOT NULL`.
+- **Avatar.** Conforme a SPEC-002, `usuario.url_avatar` deve conter o caminho relativo estável de uma opção oficial do catálogo e não pode ser nulo após a criação da conta. A escolha aleatória inicial e a validação contra o catálogo são responsabilidades do backend; o DER não enumera nem armazena os arquivos dos ícones.
+- **Obrigatoriedade.** As colunas marcadas com “Não” em **Aceita NULL** são obrigatórias. Por exemplo, toda turma exige código, título e mentor. Em `atividade`, o título é obrigatório e as referências ao criador e à categoria são opcionais. A SPEC-002 requer avatar atribuído e persistido para toda conta; o SQL atual ainda permite `url_avatar` nulo.
 - **Valores de domínio.** `usuario.tipo_perfil` admite `Mentor` e `Aluno`. O domínio de `aluno.genero` contém `M`, `F` e `O`. Os campos de percentual são inteiros sem restrição `CHECK` de intervalo no script.
+- **Dados específicos do perfil.** `aluno.data_nascimento` e `aluno.genero` permanecem obrigatórios; a regra de não aceitar data futura é validada pela aplicação. `mentor.escola_atua` permanece opcional.
+

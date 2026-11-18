@@ -1,3 +1,9 @@
+-- Script de criação inicial para um banco vazio.
+-- Em uma base já populada, antes de aplicar as novas restrições:
+-- 1. Verifique e resolva manualmente nomes/nicknames duplicados.
+-- 2. Preencha url_avatar nulo com um caminho válido do catálogo.
+-- 3. Aplique as restrições equivalentes por uma migração ALTER TABLE.
+-- Não há renomeação automática de usuários neste script para preservar os dados existentes.
 CREATE DATABASE granalabteste;
 
 USE granalabteste;
@@ -7,8 +13,18 @@ create table usuario(
 	nome varchar(100) not null,
     email varchar(100) not null UNIQUE,
     senha_hash varchar(255),
-    url_avatar varchar(200),
-    tipo_perfil ENUM('Mentor', 'Aluno') not null
+    url_avatar varchar(200) not null,
+    tipo_perfil ENUM('Mentor', 'Aluno') not null,
+    CONSTRAINT uq_usuario_nome UNIQUE (nome),
+    CONSTRAINT chk_usuario_nome_tamanho CHECK (CHAR_LENGTH(TRIM(nome)) BETWEEN 5 AND 100),
+    CONSTRAINT chk_usuario_avatar_catalogo CHECK (url_avatar IN (
+        '/resources/img/avatars/onca.png',
+        '/resources/img/avatars/garca.png',
+        '/resources/img/avatars/arara.png',
+        '/resources/img/avatars/loboguara.png',
+        '/resources/img/avatars/porquinho.png',
+        '/resources/img/avatars/tartaruga.png'
+    ))
 );
 
 create table aluno(
@@ -117,4 +133,4 @@ create table alternativa(
 INSERT INTO usuario
 (id_user, nome, email, senha_hash, url_avatar, tipo_perfil)
 VALUES
-(1, 'Usuario Teste', 'teste@granalab.com', NULL, NULL, 'Aluno');
+(1, 'Usuario Teste', 'teste@granalab.com', NULL, '/resources/img/avatars/tartaruga.png', 'Aluno');
