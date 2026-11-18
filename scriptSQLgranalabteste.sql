@@ -18,12 +18,12 @@ create table usuario(
     CONSTRAINT uq_usuario_nome UNIQUE (nome),
     CONSTRAINT chk_usuario_nome_tamanho CHECK (CHAR_LENGTH(TRIM(nome)) BETWEEN 5 AND 100),
     CONSTRAINT chk_usuario_avatar_catalogo CHECK (url_avatar IN (
-        '/resources/img/avatars/onca.png',
-        '/resources/img/avatars/garca.png',
-        '/resources/img/avatars/arara.png',
-        '/resources/img/avatars/loboguara.png',
-        '/resources/img/avatars/porquinho.png',
-        '/resources/img/avatars/tartaruga.png'
+        '/resources/img/avatars/Onca.jpeg',
+        '/resources/img/avatars/Arara.jpeg',
+        '/resources/img/avatars/LoboGuara.jpeg',
+        '/resources/img/avatars/Garca.jpeg',
+        '/resources/img/avatars/Porquinho.jpeg',
+        '/resources/img/avatars/Tartaruga.png',
     ))
 );
 
