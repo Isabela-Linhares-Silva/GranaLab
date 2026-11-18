@@ -208,36 +208,18 @@ a { color: var(--teal-dark); }
     background: #fff2f2;
     color: #9e2020;
     font-size: 13px;
-    line-height: 1.45;
-}
-.form-message[data-kind="success"] { border-color: #a6d8c3; background: #effaf4; color: #17633d; }
-.form-message[hidden] { display: none; }
-
-@media (max-width: 900px) {
-    .auth-layout { grid-template-columns: minmax(0, .85fr) minmax(390px, 1fr); }
-    .brand-panel { padding: 36px 24px; }
-    .form-panel { padding: 36px 28px; }
-    .brand { font-size: clamp(48px, 7vw, 68px); }
-    .brand-copy h1 { font-size: 29px; }
+    color: #666666;
+    margin-bottom: 10px;
 }
 
-@media (max-width: 680px) {
-    .auth-layout { display: flex; flex-direction: column; }
-    .brand-panel { min-height: auto; flex: 0 0 auto; padding: 38px 24px 28px; }
-    .brand { margin-bottom: 17px; font-size: 49px; letter-spacing: -3px; }
-    .brand-mark { top: -6px; font-size: 15px; }
-    .brand-copy h1 { margin-bottom: 8px; font-size: 23px; }
-    .brand-copy p { max-width: 360px; font-size: 12px; }
-    .decor { width: 145px; height: 95px; }
-    .decor-top { top: -65px; left: -75px; }
-    .decor-bottom { right: -70px; bottom: -70px; }
-    .form-panel { min-height: auto; flex: 1; align-items: flex-start; padding: 27px 22px 38px; border-radius: 22px 22px 0 0; }
-    .auth-card { width: min(100%, 430px); margin: 0 auto; }
-    .auth-card h2 { font-size: 23px; }
-    .subtitle { margin-bottom: 22px; font-size: 13px; }
-    .form-panel-scroll { align-items: flex-start; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
+.btn-criar-conta {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    text-align: center;
+    border: 1.5px solid #63CCCA;
+    color: #63CCCA;
+    border-radius: 25px;
+    text-decoration: none;
+    font-size: 15px;
 }
