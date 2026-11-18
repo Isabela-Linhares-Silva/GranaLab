@@ -11,7 +11,7 @@ Persistência e segurança
 
 ### T001 - Adequar a persistência aos dados do perfil
 - Camada: back-end / banco de dados
-- Status: A fazer
+- Status: Em andamento
 - Dependências: Nenhuma.
 - Critérios de conclusão:
   - Garantir a persistência dos campos do perfil definidos na SPEC-002: nome, e-mail, hash da senha, avatar, tipo de perfil, data de nascimento e gênero do Aluno e instituição/escola do Mentor.
@@ -22,7 +22,7 @@ Persistência e segurança
 
 ### T002 - Disponibilizar o contexto autenticado do usuário
 - Camada: back-end
-- Status: A fazer
+- Status: Concluído
 - Dependências: T014 (TASKS-001).
 - Critérios de conclusão:
   - Permitir que as operações de perfil identifiquem a conta autenticada a partir do mecanismo de autenticação adotado.

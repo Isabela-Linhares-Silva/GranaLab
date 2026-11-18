@@ -14,8 +14,8 @@ public class Usuario {
     private Integer idUser;
 
     @NotBlank
-    @Size(max = 100)
-    @Column(name = "nome", nullable = false, length = 100)
+    @Size(min = 5, max = 100)
+    @Column(name = "nome", nullable = false, length = 100, unique = true)
     private String nome;
 
     @NotBlank
@@ -27,8 +27,9 @@ public class Usuario {
     @Column(name = "senha_hash", length = 255)
     private String senhaHash;
 
+    @NotBlank
     @Size(max = 200)
-    @Column(name = "url_avatar", length = 200)
+    @Column(name = "url_avatar", nullable = false, length = 200)
     private String urlAvatar;
 
     @NotNull

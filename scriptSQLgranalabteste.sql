@@ -1,9 +1,5 @@
 -- Script de criação inicial para um banco vazio.
--- Em uma base já populada, antes de aplicar as novas restrições:
--- 1. Verifique e resolva manualmente nomes/nicknames duplicados.
--- 2. Preencha url_avatar nulo com um caminho válido do catálogo.
--- 3. Aplique as restrições equivalentes por uma migração ALTER TABLE.
--- Não há renomeação automática de usuários neste script para preservar os dados existentes.
+-- Para atualizar uma base existente, use scriptSQLgranalabteste-migracao-perfil.sql.
 CREATE DATABASE granalabteste;
 
 USE granalabteste;
@@ -18,26 +14,26 @@ create table usuario(
     CONSTRAINT uq_usuario_nome UNIQUE (nome),
     CONSTRAINT chk_usuario_nome_tamanho CHECK (CHAR_LENGTH(TRIM(nome)) BETWEEN 5 AND 100),
     CONSTRAINT chk_usuario_avatar_catalogo CHECK (url_avatar IN (
-        '/resources/img/avatars/Onca.jpeg',
-        '/resources/img/avatars/Arara.jpeg',
-        '/resources/img/avatars/LoboGuara.jpeg',
-        '/resources/img/avatars/Garca.jpeg',
-        '/resources/img/avatars/Porquinho.jpeg',
-        '/resources/img/avatars/Tartaruga.png',
+        '/resources/img/Onca.jpeg',
+        '/resources/img/Arara.jpeg',
+        '/resources/img/Lobo-guara.jpeg',
+        '/resources/img/Garca.jpeg',
+        '/resources/img/Porco.jpeg',
+        '/resources/img/Tartaruga.jpeg'
     ))
 );
 
 create table aluno(
 	id_aluno INT PRIMARY KEY, 
 	nivel_perfil varchar(100) not null,
-    idade int not null,
-    genero ENUM('M', 'F', 'O'),
+    data_nascimento DATE not null,
+    genero ENUM('M', 'F', 'O') not null,
     FOREIGN KEY (id_aluno) REFERENCES usuario(id_user)
 );
 
 create table mentor(
 	id_mentor INT PRIMARY KEY,
-    escola_atua varchar(100) not null,
+	escola_atua varchar(100) null,
     FOREIGN KEY (id_mentor) REFERENCES usuario(id_user)
 );
 
@@ -133,4 +129,4 @@ create table alternativa(
 INSERT INTO usuario
 (id_user, nome, email, senha_hash, url_avatar, tipo_perfil)
 VALUES
-(1, 'Usuario Teste', 'teste@granalab.com', NULL, '/resources/img/avatars/tartaruga.png', 'Aluno');
+(1, 'Usuario Teste', 'teste@granalab.com', NULL, '/resources/img/Tartaruga.jpeg', 'Aluno');
