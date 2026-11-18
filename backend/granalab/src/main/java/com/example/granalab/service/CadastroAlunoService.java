@@ -26,6 +26,7 @@ public class CadastroAlunoService {
     private final CadastroValidationService cadastroValidationService;
     private final CadastroUnicidadeService cadastroUnicidadeService;
     private final PasswordEncoder passwordEncoder;
+    private final AvatarCatalog avatarCatalog;
 
     public CadastroAlunoService(
             UsuarioRepository usuarioRepository,
@@ -33,13 +34,15 @@ public class CadastroAlunoService {
             IdGeneratorService idGeneratorService,
             CadastroValidationService cadastroValidationService,
             CadastroUnicidadeService cadastroUnicidadeService,
-            PasswordEncoder passwordEncoder) {
+            PasswordEncoder passwordEncoder,
+            AvatarCatalog avatarCatalog) {
         this.usuarioRepository = usuarioRepository;
         this.alunoRepository = alunoRepository;
         this.idGeneratorService = idGeneratorService;
         this.cadastroValidationService = cadastroValidationService;
         this.cadastroUnicidadeService = cadastroUnicidadeService;
         this.passwordEncoder = passwordEncoder;
+        this.avatarCatalog = avatarCatalog;
     }
 
     /**
@@ -66,6 +69,7 @@ public class CadastroAlunoService {
         usuario.setNome(request.nome());
         usuario.setEmail(request.email());
         usuario.setSenhaHash(passwordEncoder.encode(request.senha()));
+        usuario.setUrlAvatar(avatarCatalog.selecionarAleatorio());
         usuario.setTipoPerfil(TipoPerfil.ALUNO);
 
         usuarioRepository.save(usuario);
