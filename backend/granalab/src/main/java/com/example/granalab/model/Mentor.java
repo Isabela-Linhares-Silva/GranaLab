@@ -2,7 +2,6 @@ package com.example.granalab.model;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
-import java.time.LocalDate;
 
 /** Perfil de mentor/professor (PK = FK para usuario.id_user). */
 @Entity

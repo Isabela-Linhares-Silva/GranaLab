@@ -5,7 +5,6 @@ import com.example.granalab.dto.CadastroMentorRequest;
 import java.time.LocalDate;
 import org.springframework.stereotype.Service;
 
-import java.util.regex.Pattern;
 
 /**
  * Serviço de validação de dados de cadastro conforme SPEC-001 Seção 6.
@@ -13,10 +12,6 @@ import java.util.regex.Pattern;
  */
 @Service
 public class CadastroValidationService {
-
-    private static final Pattern EMAIL_PATTERN = Pattern.compile(
-            "^[A-Za-z0-9+_.-]+@(.+)$"
-    );
 
     /**
      * Valida os dados de cadastro de Aluno.

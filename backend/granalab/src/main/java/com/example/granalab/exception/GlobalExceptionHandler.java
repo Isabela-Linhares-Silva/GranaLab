@@ -1,7 +1,5 @@
 package com.example.granalab.exception;
 
-import com.example.granalab.dto.UsuarioResponse;
-import jakarta.validation.ConstraintViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
