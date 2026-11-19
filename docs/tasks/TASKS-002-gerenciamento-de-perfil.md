@@ -64,7 +64,7 @@ Persistência e segurança
 
 ### T006 - Disponibilizar e validar o catálogo de avatares
 - Camada: back-end
-- Status: A fazer
+- Status: Concluído
 - Dependências: T001.
 - Critérios de conclusão:
   - Manter a lista oficial dos ícones definidos pela equipe com identificadores/caminhos estáveis.
@@ -75,7 +75,7 @@ Persistência e segurança
 
 ### T007 - Implementar alteração segura de senha no perfil
 - Camada: back-end
-- Status: A fazer
+- Status: Concluído
 - Dependências: T002 e T003.
 - Critérios de conclusão:
   - Disponibilizar operação autenticada para alteração de senha sem incluir a senha em `PATCH /usuarios/me`.
