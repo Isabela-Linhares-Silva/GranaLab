@@ -462,3 +462,285 @@ a { color: var(--teal-dark); }
 .btn-verde-cor {
     background-color: #3DC48D;
 }
+
+
+/* ==========================================
+   EDITAR PERFIL - GRANALAB
+   LAYOUT EM TELA INTEIRA
+========================================== */
+
+html,
+body.pagina-perfil {
+    width: 100%;
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body.pagina-perfil {
+    min-height: 100vh;
+    background: #ffffff;
+    font-family: 'Varela Round', sans-serif;
+}
+
+/* CABEÇALHO */
+
+.pagina-perfil .navbar-principal {
+    width: 100%;
+    height: 65px;
+    margin: 0;
+    padding: 0 4%;
+    box-sizing: border-box;
+    background: #ffffff;
+    border-bottom: 1px solid #e5e9ed;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.pagina-perfil .logo-nav-img {
+    width: 30px;
+    height: auto;
+}
+
+.pagina-perfil .avatar-nav-img {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.pagina-perfil .seta-dropdown {
+    font-size: 17px;
+    color: #56616b;
+}
+
+/* ÁREA PRINCIPAL */
+
+.perfil-container {
+    width: 100%;
+    min-height: calc(100vh - 65px);
+    margin: 0;
+    padding: 28px 6%;
+    box-sizing: border-box;
+    background: #ffffff;
+}
+
+.perfil-container h1 {
+    margin: 0 0 28px;
+    color: #252a3a;
+    font-size: 22px;
+    font-weight: 400;
+}
+
+/* DUAS COLUNAS */
+
+.perfil-layout {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 7%;
+    align-items: start;
+}
+
+.perfil-layout h2 {
+    margin: 0 0 12px;
+    color: #252a3a;
+    font-size: 17px;
+    font-weight: 400;
+}
+
+/* AVATAR DO ALUNO */
+
+.perfil-avatar {
+    width: 100%;
+}
+
+.avatar-principal {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.avatar-principal img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.lista-avatares {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-top: 18px;
+}
+
+.opcao-avatar {
+    width: 44px;
+    height: 44px;
+    flex: 0 0 44px;
+    padding: 0;
+    overflow: hidden;
+    border: 2px solid transparent;
+    border-radius: 50%;
+    background: transparent;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.opcao-avatar img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.opcao-avatar:hover {
+    transform: scale(1.08);
+}
+
+.opcao-avatar.selecionado {
+    border-color: #087c80;
+}
+
+/* CAMPOS */
+
+.campo-perfil {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.campo-perfil label {
+    display: block;
+    margin-bottom: 6px;
+    color: #343947;
+    font-size: 12px;
+}
+
+.campo-perfil input {
+    width: 100%;
+    height: 38px;
+    padding: 8px 12px;
+    box-sizing: border-box;
+    border: 1px solid #d4dce4;
+    border-radius: 7px;
+    background: #ffffff;
+    color: #252a3a;
+    outline: none;
+    font-family: inherit;
+    font-size: 12px;
+}
+
+.campo-perfil input:focus {
+    border-color: #58c9c7;
+    box-shadow: 0 0 0 2px rgb(88 201 199 / 15%);
+}
+
+/* SENHAS */
+
+.secao-senha {
+    margin-top: 24px;
+}
+
+.campo-senha {
+    position: relative;
+}
+
+.campo-senha input {
+    padding-right: 40px;
+}
+
+.mostrar-senha {
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    transform: translateY(-50%);
+    padding: 0;
+    border: none;
+    background: transparent;
+    color: #525967;
+    cursor: pointer;
+}
+
+/* BOTÕES */
+
+.acoes-perfil {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+#btn-salvar {
+    width: 100%;
+    height: 40px;
+    border: none;
+    border-radius: 22px;
+    background: #62c9c7;
+    color: #17383a;
+    font-family: inherit;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+#btn-salvar:hover:not(:disabled) {
+    background: #48bdbb;
+}
+
+#btn-salvar:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+}
+
+#btn-editar,
+#btn-cancelar {
+    border: none;
+    background: transparent;
+    color: #087c80;
+    font-family: inherit;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+#btn-editar:hover,
+#btn-cancelar:hover {
+    text-decoration: underline;
+}
+
+/* MENTOR */
+
+.perfil-dados-mentor {
+    width: 100%;
+}
+
+.perfil-dados-mentor .campo-perfil {
+    margin-bottom: 18px;
+}
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 650px) {
+    .perfil-container {
+        padding: 25px 6%;
+    }
+
+    .perfil-layout {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .perfil-avatar {
+        max-width: 350px;
+        margin: 0 auto;
+    }
+
+    .lista-avatares {
+        justify-content: center;
+        gap: 14px;
+    }
+}
+

@@ -1,0 +1,202 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GranaLab - Editar perfil</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../resources/css/style.css">
+</head>
+
+<body class="pagina-perfil">
+
+    <header class="navbar-principal">
+        <div class="logo-container">
+            <img src="../resources/img/Monograma.png"
+                 alt="Logo GranaLab"
+                 class="logo-nav-img">
+        </div>
+
+        <div class="usuario-dropdown-container">
+            <div class="trigger-dropdown" id="dropdown-toggle">
+                <img src="../resources/img/Tartaruga.jpeg"
+                     alt="Avatar do usuário"
+                     class="avatar-nav-img"
+                     id="avatar-navbar">
+                <span class="seta-dropdown">⌄</span>
+            </div>
+
+            <div class="menu-dropdown-card" id="user-menu" style="display: none;">
+                <div class="dropdown-header">
+                    <img src="../resources/img/Tartaruga.jpeg"
+                         alt="Avatar"
+                         class="avatar-dropdown-img"
+                         id="avatar-dropdown">
+
+                    <span class="dropdown-username" id="nome-dropdown">@usuario</span>
+                    <span class="dropdown-tipoperfil" id="tipo-dropdown">Aluno</span>
+                </div>
+
+                <hr class="dropdown-divisor">
+
+                <ul class="dropdown-links">
+                    <li><a href="menu.html">Menu principal</a></li>
+                    <li><a href="../index.html" class="link-sair">Sair</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <main class="perfil-container">
+
+        <h1>Editar perfil</h1>
+
+        <form id="form-editar-perfil">
+
+            <div class="perfil-layout">
+
+                <!-- COLUNA ESQUERDA: ALUNO -->
+                <section class="perfil-avatar" id="secao-avatar">
+
+                    <h2>Editar avatar</h2>
+
+                    <div class="avatar-principal">
+                        <img src="../resources/img/Tartaruga.jpeg"
+                             alt="Avatar selecionado"
+                             id="avatar-atual">
+                    </div>
+
+                    <div class="lista-avatares">
+
+                        <button type="button" class="opcao-avatar selecionado"
+                                data-avatar="Tartaruga.jpeg" aria-label="Tartaruga">
+                            <img src="../resources/img/Tartaruga.jpeg" alt="Tartaruga">
+                        </button>
+
+                        <button type="button" class="opcao-avatar"
+                                data-avatar="Lobo-guara.jpeg" aria-label="Lobo-guará">
+                            <img src="../resources/img/Lobo-guara.jpeg" alt="Lobo-guará">
+                        </button>
+
+                        <button type="button" class="opcao-avatar"
+                                data-avatar="Garca.jpeg" aria-label="Garça">
+                            <img src="../resources/img/Garca.jpeg" alt="Garça">
+                        </button>
+
+                        <button type="button" class="opcao-avatar"
+                                data-avatar="Arara.jpeg" aria-label="Arara">
+                            <img src="../resources/img/Arara.jpeg" alt="Arara">
+                        </button>
+
+                        <button type="button" class="opcao-avatar"
+                                data-avatar="Onca.jpeg" aria-label="Onça">
+                            <img src="../resources/img/Onca.jpeg" alt="Onça">
+                        </button>
+
+                        <button type="button" class="opcao-avatar"
+                                data-avatar="Porco.jpeg" aria-label="Porco">
+                            <img src="../resources/img/Porco.jpeg" alt="Porco">
+                        </button>
+
+                    </div>
+                </section>
+
+                <!-- COLUNA ESQUERDA: MENTOR -->
+                <section class="perfil-dados-mentor" id="dados-mentor" hidden>
+                    <h2>Editar usuário</h2>
+
+                    <div class="campo-perfil">
+                        <label for="nome-mentor">Nome de usuário</label>
+                        <input type="text" id="nome-mentor" name="nome"
+                               placeholder="Digite seu nome" maxlength="100" disabled>
+                    </div>
+
+                    <div class="campo-perfil">
+                        <label for="instituicao">Instituição de ensino / Escola</label>
+                        <input type="text" id="instituicao" name="escola"
+                               placeholder="Digite sua instituição" maxlength="100" disabled>
+                    </div>
+                </section>
+
+                <!-- COLUNA DIREITA -->
+                <section class="perfil-formulario">
+
+                    <div id="dados-aluno">
+                        <h2>Editar usuário</h2>
+
+                        <div class="campo-perfil">
+                            <label for="nome-aluno">Nome de usuário</label>
+                            <input type="text" id="nome-aluno" name="nome"
+                                   placeholder="@usuario" maxlength="100" disabled>
+                        </div>
+                    </div>
+
+                    <div class="secao-senha">
+                        <h2>Editar senha</h2>
+
+                        <div class="campo-perfil">
+                            <label for="senha-atual">Senha atual</label>
+                            <div class="campo-senha">
+                                <input type="password" id="senha-atual"
+                                       name="senhaAtual" placeholder="Digite sua senha atual"
+                                       disabled>
+                                <button type="button" class="mostrar-senha"
+                                        data-target="senha-atual" aria-label="Mostrar senha">◉</button>
+                            </div>
+                        </div>
+
+                        <div class="campo-perfil">
+                            <label for="nova-senha">Nova senha</label>
+                            <div class="campo-senha">
+                                <input type="password" id="nova-senha"
+                                       name="novaSenha" placeholder="Digite a nova senha"
+                                       disabled>
+                                <button type="button" class="mostrar-senha"
+                                        data-target="nova-senha" aria-label="Mostrar senha">◉</button>
+                            </div>
+                        </div>
+
+                        <div class="campo-perfil">
+                            <label for="confirmar-senha">Confirmar nova senha</label>
+                            <div class="campo-senha">
+                                <input type="password" id="confirmar-senha"
+                                       name="confirmarSenha"
+                                       placeholder="Confirme a nova senha" disabled>
+                                <button type="button" class="mostrar-senha"
+                                        data-target="confirmar-senha" aria-label="Mostrar senha">◉</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="mensagem-perfil" class="mensagem-perfil"
+                         role="status" aria-live="polite" hidden></div>
+
+                    <div class="acoes-perfil">
+                        <button type="submit" id="btn-salvar" disabled>
+                            Salvar alterações
+                        </button>
+
+                        <button type="button" id="btn-editar">
+                            Editar perfil
+                        </button>
+
+                        <button type="button" id="btn-cancelar" hidden>
+                            Cancelar
+                        </button>
+                    </div>
+
+                </section>
+            </div>
+        </form>
+    </main>
+
+    <script src="../resources/js/app.js"></script>
+    <script src="../resources/js/editar-perfil.js"></script>
+
+</body>
+</html>
