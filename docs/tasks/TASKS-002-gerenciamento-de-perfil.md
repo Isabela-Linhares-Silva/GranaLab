@@ -31,7 +31,7 @@ Persistência e segurança
 
 ### T003 - Criar DTOs e consultas para dados de perfil
 - Camada: back-end
-- Status: A fazer
+- Status: Concluído
 - Dependências: T001 e T002.
 - Critérios de conclusão:
   - Criar DTO de resposta com os dados comuns da conta e os campos específicos do perfil Aluno ou Mentor.
@@ -42,7 +42,7 @@ Persistência e segurança
 
 ### T004 - Implementar consulta do próprio perfil
 - Camada: back-end
-- Status: A fazer
+- Status: Concluído
 - Dependências: T003.
 - Critérios de conclusão:
   - Disponibilizar `GET /usuarios/me` para retornar o perfil da conta autenticada.
@@ -52,7 +52,7 @@ Persistência e segurança
 
 ### T005 - Implementar atualização parcial do perfil
 - Camada: back-end
-- Status: A fazer
+- Status: Concluído
 - Dependências: T003 e T004.
 - Critérios de conclusão:
   - Disponibilizar `PATCH /usuarios/me` para atualizar somente os campos enviados e permitidos para o perfil autenticado.
@@ -64,7 +64,7 @@ Persistência e segurança
 
 ### T006 - Disponibilizar e validar o catálogo de avatares
 - Camada: back-end
-- Status: A fazer
+- Status: Concluído
 - Dependências: T001.
 - Critérios de conclusão:
   - Manter a lista oficial dos ícones definidos pela equipe com identificadores/caminhos estáveis.
@@ -75,7 +75,7 @@ Persistência e segurança
 
 ### T007 - Implementar alteração segura de senha no perfil
 - Camada: back-end
-- Status: A fazer
+- Status: Concluído
 - Dependências: T002 e T003.
 - Critérios de conclusão:
   - Disponibilizar operação autenticada para alteração de senha sem incluir a senha em `PATCH /usuarios/me`.
@@ -87,7 +87,7 @@ Persistência e segurança
 
 ### T008 - Padronizar erros das operações de perfil
 - Camada: back-end
-- Status: A fazer
+- Status: Concluído
 - Dependências: T004, T005, T006 e T007.
 - Critérios de conclusão:
   - Tratar nome/nickname duplicado, campos inválidos, avatar fora do catálogo e senha atual incorreta.
