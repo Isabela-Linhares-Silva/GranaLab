@@ -11,14 +11,14 @@ Persistência e segurança
 
 ### T001 - Adequar a persistência aos dados do perfil
 - Camada: back-end / banco de dados
-- Status: Em andamento
+- Status: Concluído
 - Dependências: Nenhuma.
 - Critérios de conclusão:
   - Garantir a persistência dos campos do perfil definidos na SPEC-002: nome, e-mail, hash da senha, avatar, tipo de perfil, data de nascimento e gênero do Aluno e instituição/escola do Mentor.
   - Definir a restrição de unicidade do nome/nickname e aplicar os limites mínimo e máximo definidos para esse campo.
   - Permitir que instituição/escola do Mentor fique vazia.
   - Garantir um avatar válido para cada usuário, incluindo contas existentes sem avatar.
-  - Preparar a migração para dados existentes sem renomear automaticamente nomes duplicados; identificar duplicidades antes de aplicar a restrição única.
+  - Aplicar as restrições diretamente na criação do banco novo; não há dados existentes a migrar ou nomes duplicados a tratar no cenário atual.
 
 ### T002 - Disponibilizar o contexto autenticado do usuário
 - Camada: back-end

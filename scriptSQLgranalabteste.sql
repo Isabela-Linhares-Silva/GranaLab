@@ -1,5 +1,6 @@
--- Script de criação inicial para um banco vazio.
--- Para atualizar uma base existente, use scriptSQLgranalabteste-migracao-perfil.sql.
+-- Script único de inicialização para banco novo/vazio.
+-- Recria o banco; use somente enquanto não houver dados a preservar.
+DROP DATABASE IF EXISTS granalabteste;
 CREATE DATABASE granalabteste;
 
 USE granalabteste;
