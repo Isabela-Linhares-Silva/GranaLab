@@ -2,7 +2,6 @@ package com.example.granalab.model;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
-import java.time.LocalDate;
 
 /** Conta principal. Aluno e Mentor sao perfis associados (mesma PK). */
 @Entity
