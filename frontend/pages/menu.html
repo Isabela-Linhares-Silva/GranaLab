@@ -1,0 +1,97 @@
+ <!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GranaLab - Menu Principal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../resources/css/style.css">
+</head>
+<body>
+
+    <!-- Header / Navbar Superior -->
+    <header class="navbar-principal">
+        <div class="logo-container">
+            <img src="../resources/img/Monograma.png" alt="Logo GranaLab" class="logo-nav-img">
+        </div>
+        <div class="usuario-dropdown-container">
+            <div class="trigger-dropdown" id="dropdown-toggle">
+                <img src="../resources/img/Tartaruga.jpeg" alt="Avatar Usuário" class="avatar-nav-img">
+                <span class="seta-dropdown">▼</span>
+            </div>
+            <!-- Menu Dropdown (conforme image_416c3f.png) -->
+            <div class="menu-dropdown-card" id="user-menu" style="display: none;">
+                <div class="dropdown-header">
+                    <img src="../resources/img/Tartaruga.jpeg" alt="Avatar" class="avatar-dropdown-img">
+                    <span class="dropdown-username">@usuario</span>
+                    <span class="dropdown-tipoperfil">Aluno</span>
+                </div>
+                <hr class="dropdown-divisor">
+                <ul class="dropdown-links">
+                    <li><a href="editar-perfil.html">Editar perfil</a></li>
+                    <li><a href="../index.html" class="link-sair">Sair</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main class="main-conteudo">
+        <!-- Banner de Boas-vindas -->
+        <section class="banner-boas-vindas">
+            <div class="banner-texto">
+                <h1>Boas-vindas, @usuario! ✨</h1>
+                <p>Aprenda a fazer boas escolhas com seu dinheiro.</p>
+            </div>
+            <div class="banner-ilustracao">
+                <!-- Elemento ilustrativo de moedas -->
+                <img src="../resources/img/Trio de moedas douradas com cifrões-4.png" class="money-img" >
+            </div>
+        </section>
+
+        <!-- Seção de Categorias -->
+        <section class="secao-categorias">
+            <h2>O que vamos aprender hoje?</h2>
+            <p class="sub-categoria">Escolha uma categoria para começar.</p>
+
+            <div class="grid-categorias">
+                <!-- Card 1: Quizzes -->
+                <div class="card-categoria card-ciano">
+                    <img src="../resources/img/Quizzes.png" class="categoria-img" >
+                    <h3>Quizzes</h3>
+                    <p>Teste seus conhecimentos de um jeito divertido.</p>
+                    <a href="#" class="btn-explorar btn-ciano-cor">Explorar &rarr;</a>
+                </div>
+
+                <!-- Card 2: Videoaulas -->
+                <div class="card-categoria card-amarelo">
+                    <img src="../resources/img/Videos.png" class="categoria-img" >
+                    <h3>Videoaulas</h3>
+                    <p>Entenda o dinheiro com explicações simples.</p>
+                    <a href="#" class="btn-explorar btn-amarelo-cor">Explorar &rarr;</a>
+                </div>
+
+                <!-- Card 3: Desmonte o Anúncio -->
+                <div class="card-categoria card-roxo">
+                    <img src="../resources/img/Desmonte.png" class="categoria-img" >
+                    <h3>Desmonte o Anúncio</h3>
+                    <p>Descubra o que está por trás das promessas.</p>
+                    <a href="#" class="btn-explorar btn-roxo-cor">Explorar &rarr;</a>
+                </div>
+
+                <!-- Card 4: Turmas -->
+                <div class="card-categoria card-verde">
+                    <img src="../resources/img/Turmas.png" class="categoria-img" >
+                    <h3>Turmas</h3>
+                    <p>Aprenda e compartilhe descobertas com sua turma.</p>
+                    <a href="#" class="btn-explorar btn-verde-cor">Explorar &rarr;</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="../resources/js/app.js"></script>
+</body>
+</html>

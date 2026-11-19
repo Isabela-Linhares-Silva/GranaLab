@@ -223,3 +223,242 @@ a { color: var(--teal-dark); }
     text-decoration: none;
     font-size: 15px;
 }
+
+/* Menu */
+
+.navbar-principal {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    background-color: #FFFFFF;
+    border-bottom: 1px solid #EFEFEF;
+}
+
+.logo-nav-img {
+    height: 45px;
+}
+
+.money-img {
+    width: 130px;
+    height: 120px;
+}
+
+.categoria-img {
+    width: 105px;
+    height: 105px;
+}
+
+
+.usuario-dropdown-container {
+    position: relative;
+}
+
+.trigger-dropdown {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.avatar-nav-img {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #63CCCA;
+}
+
+.seta-dropdown {
+    font-size: 11px;
+    color: #666;
+}
+
+/* Card Dropdown */
+
+.menu-dropdown-card {
+    position: absolute;
+    right: 0;
+    top: 55px;
+    width: 170px;
+    background: #FFFFFF;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    padding: 15px;
+    z-index: 100;
+}
+
+.dropdown-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.avatar-dropdown-img {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 8px;
+}
+
+.dropdown-username {
+    font-size: 14px;
+    font-weight: bold;
+    color: #060608;
+}
+
+.dropdown-tipoperfil {
+    font-size: 12px;
+    color: #888;
+}
+
+.dropdown-divisor {
+    border: 0;
+    border-top: 1px solid #EFEFEF;
+    margin: 10px 0;
+}
+
+.dropdown-links {
+    list-style: none;
+    padding: 0;
+}
+
+.dropdown-links li a {
+    display: block;
+    padding: 6px 0;
+    font-size: 13px;
+    color: #333;
+    text-decoration: none;
+}
+
+.dropdown-links li a:hover {
+    color: #63CCCA;
+}
+
+.link-sair {
+    color: #D32F2F;
+}
+
+
+.main-conteudo {
+    width: 100%;
+    max-width: 100%;
+    margin: 30px auto;
+    padding: 0 40px;
+    box-sizing: border-box;
+}
+
+
+.banner-boas-vindas {
+    background-color: #DAF5F5;
+    border-radius: 16px;
+    padding: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.banner-texto h1 {
+    font-size: 28px;
+    color: #060608;
+    margin-bottom: 8px;
+}
+
+.banner-texto p {
+    font-size: 15px;
+    color: #444;
+}
+
+/* Categorias */
+
+.secao-categorias h2 {
+    font-size: 24px;
+    color: #060608;
+    margin-bottom: 4px;
+}
+
+.sub-categoria {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 25px;
+}
+
+/* Grid de categorias */
+
+.grid-categorias {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+}
+
+.card-categoria {
+    border-radius: 16px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    min-height: 220px;
+}
+
+.card-ciano {
+    background-color: #DFF6F6;
+}
+
+.card-amarelo {
+    background-color: #FFF6D6;
+}
+
+.card-roxo {
+    background-color: #EFE5FC;
+}
+
+.card-verde {
+    background-color: #E1F7EA;
+}
+
+.card-categoria h3 {
+    font-size: 18px;
+    color: #060608;
+    margin-bottom: 8px;
+}
+
+.card-categoria p {
+    font-size: 13px;
+    color: #555;
+    margin-bottom: 20px;
+    line-height: 1.4;
+}
+
+/* Botões explorar */
+
+.btn-explorar {
+    display: inline-block;
+    padding: 8px 18px;
+    border-radius: 20px;
+    font-size: 13px;
+    text-decoration: none;
+    font-weight: bold;
+    width: fit-content;
+    color: #FFF;
+}
+
+.btn-ciano-cor {
+    background-color: #63CCCA;
+}
+
+.btn-amarelo-cor {
+    background-color: #F4C430;
+}
+
+.btn-roxo-cor {
+    background-color: #925BFA;
+}
+
+.btn-verde-cor {
+    background-color: #3DC48D;
+}
