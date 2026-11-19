@@ -87,7 +87,7 @@ Persistência e segurança
 
 ### T008 - Padronizar erros das operações de perfil
 - Camada: back-end
-- Status: A fazer
+- Status: Concluído
 - Dependências: T004, T005, T006 e T007.
 - Critérios de conclusão:
   - Tratar nome/nickname duplicado, campos inválidos, avatar fora do catálogo e senha atual incorreta.

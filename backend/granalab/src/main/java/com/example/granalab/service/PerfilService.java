@@ -2,6 +2,7 @@ package com.example.granalab.service;
 
 import com.example.granalab.dto.AtualizacaoPerfilRequest;
 import com.example.granalab.dto.PerfilResponse;
+import com.example.granalab.exception.ErroPerfilException;
 import com.example.granalab.model.Aluno;
 import com.example.granalab.model.Genero;
 import com.example.granalab.model.Mentor;
@@ -11,6 +12,7 @@ import com.example.granalab.repository.AlunoRepository;
 import com.example.granalab.repository.MentorRepository;
 import com.example.granalab.repository.UsuarioRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.http.HttpStatus;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
@@ -47,7 +49,7 @@ public class PerfilService {
 
         if (usuario.getTipoPerfil() == TipoPerfil.ALUNO) {
             if (request.isEscolaAtuaInformada()) {
-                throw new IllegalArgumentException("Instituição/escola não se aplica ao perfil Aluno");
+                throw erro("DADOS_INVALIDOS", "Instituição/escola não se aplica ao perfil Aluno");
             }
             aluno = alunoRepository.findById(idUser)
                     .orElseThrow(() -> new IllegalStateException("Perfil Aluno não encontrado"));
@@ -55,7 +57,7 @@ public class PerfilService {
             if (request.isGeneroInformado()) genero = validarGenero(request.getGenero());
         } else if (usuario.getTipoPerfil() == TipoPerfil.MENTOR) {
             if (request.isDataNascimentoInformada() || request.isGeneroInformado()) {
-                throw new IllegalArgumentException("Data de nascimento e gênero não se aplicam ao perfil Mentor");
+                throw erro("DADOS_INVALIDOS", "Data de nascimento e gênero não se aplicam ao perfil Mentor");
             }
             mentor = mentorRepository.findById(idUser)
                     .orElseThrow(() -> new IllegalStateException("Perfil Mentor não encontrado"));
@@ -106,50 +108,54 @@ public class PerfilService {
     }
 
     private String validarNome(String nome, Usuario usuario) {
-        if (nome == null || nome.isBlank()) throw new IllegalArgumentException("Nome é obrigatório");
+        if (nome == null || nome.isBlank()) throw erro("DADOS_INVALIDOS", "Nome é obrigatório");
         String normalizado = nome.trim();
         if (normalizado.length() < 5 || normalizado.length() > 100) {
-            throw new IllegalArgumentException("Nome deve possuir entre 5 e 100 caracteres");
+            throw erro("DADOS_INVALIDOS", "Nome deve possuir entre 5 e 100 caracteres");
         }
         if (!normalizado.equals(usuario.getNome())
                 && usuarioRepository.existsByNomeAndIdUserNot(normalizado, usuario.getIdUser())) {
-            throw new IllegalArgumentException("Nome já está em uso (EX001)");
+            throw new ErroPerfilException("NOME_DUPLICADO", "Nome já está em uso (EX001)", HttpStatus.CONFLICT);
         }
         return normalizado;
     }
 
     private String validarAvatar(String avatar) {
         if (avatar == null || !avatarCatalog.contem(avatar)) {
-            throw new IllegalArgumentException("Avatar inválido: selecione uma opção do catálogo");
+            throw erro("AVATAR_INVALIDO", "Avatar inválido: selecione uma opção do catálogo");
         }
         return avatar;
     }
 
     private LocalDate validarDataNascimento(String valor) {
-        if (valor == null || valor.isBlank()) throw new IllegalArgumentException("Data de nascimento é obrigatória");
+        if (valor == null || valor.isBlank()) throw erro("DADOS_INVALIDOS", "Data de nascimento é obrigatória");
         try {
             LocalDate data = LocalDate.parse(valor);
             if (!data.isBefore(LocalDate.now())) {
-                throw new IllegalArgumentException("Data de nascimento não pode ser futura ou igual à data atual");
+                throw erro("DADOS_INVALIDOS", "Data de nascimento não pode ser futura ou igual à data atual");
             }
             return data;
         } catch (DateTimeParseException ex) {
-            throw new IllegalArgumentException("Data de nascimento inválida; use o formato AAAA-MM-DD");
+            throw erro("DADOS_INVALIDOS", "Data de nascimento inválida; use o formato AAAA-MM-DD");
         }
     }
 
     private Genero validarGenero(String valor) {
-        if (valor == null) throw new IllegalArgumentException("Gênero é obrigatório");
+        if (valor == null) throw erro("DADOS_INVALIDOS", "Gênero é obrigatório");
         try {
             return Genero.valueOf(valor);
         } catch (IllegalArgumentException ex) {
-            throw new IllegalArgumentException("Gênero inválido; valores aceitos: M, F ou O");
+            throw erro("DADOS_INVALIDOS", "Gênero inválido; valores aceitos: M, F ou O");
         }
     }
 
     private void validarEscola(String escola) {
         if (escola != null && escola.trim().length() > 100) {
-            throw new IllegalArgumentException("Instituição/escola deve ter no máximo 100 caracteres");
+            throw erro("DADOS_INVALIDOS", "Instituição/escola deve ter no máximo 100 caracteres");
         }
+    }
+
+    private ErroPerfilException erro(String codigo, String mensagem) {
+        return new ErroPerfilException(codigo, mensagem, HttpStatus.BAD_REQUEST);
     }
 }
