@@ -744,3 +744,30 @@ body.pagina-perfil {
     }
 }
 
+
+/* Campo de seleção de gênero */
+
+.campo-perfil select {
+    width: 100%;
+    height: 38px;
+    padding: 8px 12px;
+    box-sizing: border-box;
+    border: 1px solid #d4dce4;
+    border-radius: 7px;
+    background: #ffffff;
+    color: #252a3a;
+    outline: none;
+    font-family: 'Varela Round', sans-serif;
+    font-size: 12px;
+}
+
+.campo-perfil select:focus {
+    border-color: #58c9c7;
+    box-shadow: 0 0 0 2px rgb(88 201 199 / 15%);
+}
+
+.campo-perfil input:disabled {
+    background: #f1f4f6;
+    color: #687780;
+    cursor: not-allowed;
+}

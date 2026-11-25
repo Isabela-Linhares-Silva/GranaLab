@@ -107,34 +107,63 @@
                 </section>
 
                 <!-- COLUNA ESQUERDA: MENTOR -->
+               
                 <section class="perfil-dados-mentor" id="dados-mentor" hidden>
                     <h2>Editar usuário</h2>
 
                     <div class="campo-perfil">
-                        <label for="nome-mentor">Nome de usuário</label>
+                        <label for="nome-mentor">Nome</label>
                         <input type="text" id="nome-mentor" name="nome"
-                               placeholder="Digite seu nome" maxlength="100" disabled>
+                            placeholder="Digite seu nome" maxlength="100">
                     </div>
 
                     <div class="campo-perfil">
                         <label for="instituicao">Instituição de ensino / Escola</label>
                         <input type="text" id="instituicao" name="escola"
-                               placeholder="Digite sua instituição" maxlength="100" disabled>
+                            placeholder="Digite sua instituição" maxlength="150">
+                    </div>
+
+                    <div class="campo-perfil">
+                        <label for="email-mentor">E-mail</label>
+                        <input type="email" id="email-mentor" name="email"
+                            placeholder="usuario@email.com" disabled>
                     </div>
                 </section>
 
+
                 <!-- COLUNA DIREITA -->
                 <section class="perfil-formulario">
-
                     <div id="dados-aluno">
                         <h2>Editar usuário</h2>
+                        <div class="campo-perfil">
+                            <label for="nome-aluno">Nome</label>
+                            <input type="text" id="nome-aluno" name="nome"
+                                placeholder="Digite seu nome" maxlength="100">
+                        </div>
 
                         <div class="campo-perfil">
-                            <label for="nome-aluno">Nome de usuário</label>
-                            <input type="text" id="nome-aluno" name="nome"
-                                   placeholder="@usuario" maxlength="100" disabled>
+                            <label for="data-nascimento">Data de nascimento</label>
+                            <input type="date" id="data-nascimento" name="dataNascimento">
+                        </div>
+
+                        <div class="campo-perfil">
+                            <label for="genero">Gênero</label>
+                            <select id="genero" name="genero">
+                                <option value="">Selecione</option>
+                                <option value="FEMININO">Feminino</option>
+                                <option value="MASCULINO">Masculino</option>
+                                <option value="OUTRO">Outro</option>
+                                <option value="NAO_INFORMADO">Prefiro não informar</option>
+                            </select>
+                        </div>
+
+                        <div class="campo-perfil">
+                            <label for="email-aluno">E-mail</label>
+                            <input type="email" id="email-aluno" name="email"
+                                placeholder="usuario@email.com" disabled>
                         </div>
                     </div>
+
 
                     <div class="secao-senha">
                         <h2>Editar senha</h2>
@@ -196,7 +225,7 @@
     </main>
 
     <script src="../resources/js/app.js"></script>
-    <script src="../resources/js/editar-perfil.js"></script>
+    <script src="../resources/js/editarPerfil.js"></script>
 
 </body>
 </html>
