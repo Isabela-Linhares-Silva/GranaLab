@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('form-editar-perfil');
     if (!form) return;
 
-    const API_BASE_URL = window.GRANALAB_API_URL || 'http://localhost:8080';
+    const API_BASE_URL = window.GRANALAB_API_URL || window.location.origin;
     const token = sessionStorage.getItem('granalab.token');
 
     const elementos = {

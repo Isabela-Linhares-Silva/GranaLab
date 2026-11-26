@@ -72,16 +72,15 @@ public class CadastroMentorService {
         usuario.setUrlAvatar(avatarCatalog.selecionarAleatorio());
         usuario.setTipoPerfil(TipoPerfil.MENTOR);
 
-        usuarioRepository.save(usuario);
+        Usuario usuarioPersistido = usuarioRepository.save(usuario);
 
-        // Cria e persiste Mentor com o mesmo id (T005)
+        // MapsId deriva a chave do perfil a partir da conta já gerenciada.
         Mentor mentor = new Mentor();
-        mentor.setIdMentor(idInt);
-        mentor.setUsuario(usuario);
+        mentor.setUsuario(usuarioPersistido);
         mentor.setEscolaAtua(request.escolaAtua());
 
         mentorRepository.save(mentor);
 
-        return UsuarioResponse.from(usuario);
+        return UsuarioResponse.from(usuarioPersistido);
     }
 }
