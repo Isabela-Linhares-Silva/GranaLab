@@ -72,18 +72,17 @@ public class CadastroAlunoService {
         usuario.setUrlAvatar(avatarCatalog.selecionarAleatorio());
         usuario.setTipoPerfil(TipoPerfil.ALUNO);
 
-        usuarioRepository.save(usuario);
+        Usuario usuarioPersistido = usuarioRepository.save(usuario);
 
-        // Cria e persiste Aluno com o mesmo id (T005)
+        // MapsId deriva a chave do perfil a partir da conta já gerenciada.
         Aluno aluno = new Aluno();
-        aluno.setIdAluno(idInt);
-        aluno.setUsuario(usuario);
+        aluno.setUsuario(usuarioPersistido);
         aluno.setNivelPerfil("Básico");
         aluno.setDataNascimento(request.dataNascimento());
         aluno.setGenero(request.genero());
 
         alunoRepository.save(aluno);
 
-        return UsuarioResponse.from(usuario);
+        return UsuarioResponse.from(usuarioPersistido);
     }
 }

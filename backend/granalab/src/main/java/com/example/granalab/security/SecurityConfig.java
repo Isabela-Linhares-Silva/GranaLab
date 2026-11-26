@@ -40,10 +40,8 @@ public class SecurityConfig {
                     .requestMatchers(
                         "/",
                         "/index.html",
-                        "/cadastro.html",
-                        "/css/**",
-                        "/js/**",
-                        "/img/**",
+                        "/pages/**",
+                        "/resources/**",
                         "/favicon.ico"
                     ).permitAll()
 

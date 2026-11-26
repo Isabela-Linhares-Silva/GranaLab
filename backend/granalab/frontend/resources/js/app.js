@@ -1,5 +1,5 @@
-// Configure window.GRANALAB_API_URL before this script when the API is not on localhost:8080.
-const API_BASE_URL = window.GRANALAB_API_URL || 'http://localhost:8080';
+// Permite sobrescrever a API em ambientes separados; por padrão usa a mesma origem da página.
+const API_BASE_URL = window.GRANALAB_API_URL || window.location.origin;
 
 document.addEventListener('DOMContentLoaded', () => {
     const cadastro = document.getElementById('form-cadastro');
@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (recuperar) configurarRecuperacao(recuperar);
     if (redefinir) configurarRedefinicao(redefinir);
     configurarPaginaDePerfil();
+    configurarMenuPrincipal();
 });
 
 function configurarCadastro(form) {
@@ -177,12 +178,54 @@ function configurarRedefinicao(form) {
 function configurarPaginaDePerfil() {
     const destino = document.getElementById('perfil-usuario');
     if (!destino) return;
-    const usuario = lerUsuarioDaSessao();
-    if (!usuario) {
+    const token = sessionStorage.getItem('granalab.token');
+    if (!token) {
         window.location.replace('../index.html');
         return;
     }
-    destino.textContent = usuario.nome ? `Olá, ${usuario.nome}.` : 'Login realizado com sucesso.';
+
+    fetch(`${API_BASE_URL}/usuarios/me`, {
+        headers: { 'Accept': 'application/json', 'Authorization': `Bearer ${token}` }
+    })
+        .then(async (response) => {
+            const perfil = await lerResposta(response);
+            if (!response.ok) throw new Error(mensagemDaApi(perfil, response.status));
+
+            sessionStorage.setItem('granalab.usuario', JSON.stringify(perfil));
+            destino.textContent = `Olá, ${perfil.nome}. Abrindo seu menu...`;
+            window.location.replace('menu.html');
+        })
+        .catch((error) => {
+            destino.textContent = error.message || 'Não foi possível carregar seus dados. Tente entrar novamente.';
+        });
+}
+
+function configurarMenuPrincipal() {
+    const elementoNome = document.getElementById('nome-menu');
+    if (!elementoNome) return;
+
+    const token = sessionStorage.getItem('granalab.token');
+    const usuario = lerUsuarioDaSessao();
+    if (!token || !usuario) {
+        window.location.replace('../index.html');
+        return;
+    }
+
+    const nome = usuario.nome || '@usuario';
+    elementoNome.textContent = nome;
+
+    const nomeDropdown = document.getElementById('nome-dropdown-menu');
+    const tipoDropdown = document.getElementById('tipo-dropdown-menu');
+    if (nomeDropdown) nomeDropdown.textContent = nome;
+    if (tipoDropdown) tipoDropdown.textContent = usuario.tipoPerfil || 'Aluno';
+
+    const avatar = usuario.urlAvatar;
+    if (avatar) {
+        const avatarMenu = document.getElementById('avatar-menu');
+        const avatarDropdown = document.getElementById('avatar-dropdown-menu');
+        if (avatarMenu) avatarMenu.src = avatar;
+        if (avatarDropdown) avatarDropdown.src = avatar;
+    }
 }
 
 async function enviarFormulario({ form, button, message, url, payload, successMessage, onSuccess }) {

@@ -18,19 +18,19 @@
         </div>
         <div class="usuario-dropdown-container">
             <div class="trigger-dropdown" id="dropdown-toggle">
-                <img src="../resources/img/Tartaruga.jpeg" alt="Avatar Usuário" class="avatar-nav-img">
+                <img src="../resources/img/Tartaruga.jpeg" alt="Avatar Usuário" class="avatar-nav-img" id="avatar-menu">
                 <span class="seta-dropdown">▼</span>
             </div>
             <!-- Menu Dropdown (conforme image_416c3f.png) -->
             <div class="menu-dropdown-card" id="user-menu" style="display: none;">
                 <div class="dropdown-header">
-                    <img src="../resources/img/Tartaruga.jpeg" alt="Avatar" class="avatar-dropdown-img">
-                    <span class="dropdown-username">@usuario</span>
-                    <span class="dropdown-tipoperfil">Aluno</span>
+                    <img src="../resources/img/Tartaruga.jpeg" alt="Avatar" class="avatar-dropdown-img" id="avatar-dropdown-menu">
+                    <span class="dropdown-username" id="nome-dropdown-menu">@usuario</span>
+                    <span class="dropdown-tipoperfil" id="tipo-dropdown-menu">Aluno</span>
                 </div>
                 <hr class="dropdown-divisor">
                 <ul class="dropdown-links">
-                    <li><a href="editaPerfil.html">Editar perfil</a></li>
+                    <li><a href="editarPerfil.html">Editar perfil</a></li>
                     <li><a href="../index.html" class="link-sair">Sair</a></li>
                 </ul>
             </div>
@@ -42,7 +42,7 @@
         <!-- Banner de Boas-vindas -->
         <section class="banner-boas-vindas">
             <div class="banner-texto">
-                <h1>Boas-vindas, @usuario! ✨</h1>
+                <h1>Boas-vindas, <span id="nome-menu">@usuario</span>! ✨</h1>
                 <p>Aprenda a fazer boas escolhas com seu dinheiro.</p>
             </div>
             <div class="banner-ilustracao">
