@@ -24,13 +24,13 @@ body {
 button, input, select { font: inherit; }
 a { color: var(--teal-dark); }
 
-.auth-layout {
+.auth-layout,.container {
     display: grid;
     grid-template-columns: minmax(0, 1.2fr) minmax(420px, .85fr);
     min-height: 100vh;
 }
 
-.brand-panel {
+.brand-panel,.logo{
     position: relative;
     display: flex;
     min-height: 100vh;
@@ -102,7 +102,7 @@ a { color: var(--teal-dark); }
     transform: rotate(25deg);
 }
 
-.form-panel {
+.form-panel,.login {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -112,7 +112,7 @@ a { color: var(--teal-dark); }
 }
 .form-panel-scroll { align-items: flex-start; }
 .standalone-panel { min-height: 100vh; }
-.auth-card {
+.auth-card, .caixa-login{
     width: min(100%, 430px);
     padding: 4px;
 }
@@ -123,14 +123,14 @@ a { color: var(--teal-dark); }
     font-weight: 400;
     line-height: 1.25;
 }
-.subtitle {
+.subtitle,.subtitulo {
     margin: 0 0 28px;
     color: var(--muted);
     font-size: 14px;
     line-height: 1.5;
 }
 
-.field { margin-bottom: 17px; }
+.field,.campo { margin-bottom: 17px; }
 .field label, .profile-choice legend {
     display: block;
     margin-bottom: 7px;
@@ -771,3 +771,4 @@ body.pagina-perfil {
     color: #687780;
     cursor: not-allowed;
 }
+
