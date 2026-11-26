@@ -36,8 +36,23 @@ public class SecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable)
                 .sessionManagement(s -> s.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers(HttpMethod.POST, "/auth/**").permitAll()
-                        .anyRequest().authenticated())
+                    // Telas e arquivos públicos do frontend
+                    .requestMatchers(
+                        "/",
+                        "/index.html",
+                        "/cadastro.html",
+                        "/css/**",
+                        "/js/**",
+                        "/img/**",
+                        "/favicon.ico"
+                    ).permitAll()
+
+                    // Rotas de autenticação
+                    .requestMatchers("/auth/**").permitAll()
+
+                    // Demais rotas exigem autenticação
+                    .anyRequest().authenticated()
+                )
                 .addFilterBefore(new TokenAuthenticationFilter(tokenService), UsernamePasswordAuthenticationFilter.class)
                 .exceptionHandling(e -> e.authenticationEntryPoint(new HttpStatusEntryPoint(HttpStatus.UNAUTHORIZED)))
                 .formLogin(AbstractHttpConfigurer::disable)
